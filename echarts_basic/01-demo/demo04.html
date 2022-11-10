@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/jquery-1.8.0.js"></script>
+</head>
+<body>
+    <div id="map_China" style="width: 400px; height: 600px;"></div>
+    <script>
+        // 获取图表容器
+        var mCharts = echarts.init(document.getElementById("map_China"));
+        
+        $.get('json/map/china.json',function(ret){
+        //ret 就是中国的各个省份的矢量地图数据
+        // console.log(ret)
+        //在Ajax的回调函数中注册地图矢量数据
+            echarts.registerMap('chinaMap',ret)
+            var option = {
+                geo:{
+                    type:'map',
+                    map:'chinaMap'//chinaMap需要和registerMap中的第一个参数保持一致
+                }
+            }
+            mCharts.setOption(option)
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="echarts.js"></script>
+    <style>
+        .div {
+            height: 1000px;
+            width: 1080px;
+            margin-top: 50px;
+            margin-left: 100px;
+            background-color: silver;
+            border-radius: 10px;
+        }
+
+        .div1 {
+            height: 170px;
+            width: 1050px;
+            background-color: white;
+
+            margin-left: 15px;
+            border-radius: 10px;
+
+        }
+
+        .font1 {
+            float: left;
+            margin-top: 30px;
+        }
+
+        .v1 {
+            width: 150px;
+            height: 80px;
+            border-radius: 5px;
+            margin-left: 10px;
+            background-color: rgb(236, 236, 234);
+            float: left;
+            margin-top: 70px;
+
+
+        }
+
+        .v1 img {
+            margin-top: -20px;
+            margin-left: 50px;
+        }
+
+        .div2 {
+            width: 230px;
+            height: 470px;
+            background-color: black;
+            margin-left: 15px;
+            margin-top: 10px;
+            float: left;
+            border-radius: 10px;
+        }
+
+        .div3 {
+            width: 230px;
+            height: 470px;
+            background-color: white;
+            margin-left: 15px;
+            margin-top: 10px;
+            float: left;
+            border-radius: 10px;
+            line-height: 40px;
+        }
+
+        .div4 {
+            width: 552px;
+            height: 470px;
+            background-color: white;
+            margin-left: 15px;
+            margin-top: 10px;
+            float: left;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div class="div1">
+            <div class="font1">员工概括</div>
+            <div class="v1">
+                <a href=""><img src="./img/11.png" width="40px" height="40px"></a>
+
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10,000
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在职员工
+            </div>
+            <div class="v1">
+                <a href=""><img src="./img/11.png" width="40px" height="40px"></a>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;待入职
+            </div>
+            <div class="v1">
+                <a href=""><img src="./img/11.png" width="40px" height="40px"></a>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;试用期员工
+            </div>
+            <div class="v1">
+                <a href=""><img src="./img/11.png" width="40px" height="40px"></a>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8905
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;正式员工
+            </div>
+            <div class="v1">
+                <a href=""><img src="./img/11.png" width="40px" height="40px"></a>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;44
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代离职员工
+            </div>
+            <div class="v1">
+                <a href=""><img src="./img/11.png" width="30px" height="30px"></a>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;609
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已离职员工
+            </div>
+        </div>
+        <div class="div2">
+            <span>快捷入口</span>
+        </div>
+        <div class="div3">
+            <span>日常待办</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="font-size: 2px;right: 100;">全部日常></span>
+            <div align="center">
+                <script language="javascript">
+                    var my = new Date();
+
+                    function showc() {
+                        var k = 1;
+                        var j = 1;
+                        var today;
+                        var tomonth;
+                        var theday = 1;//日期
+                        var max;
+                        var temp;
+                        var tempday;//这个月第一天的星期
+                        document.write("<b>" + my.getFullYear() + "-" + (my.getMonth() + 1) + "</b>");
+                        document.write("<table border='1' width='225' height='158'>");
+                        document.write("<tr>");
+                        document.write("<td height='23' width='25'><font color='red'>Sun</font></td>");
+                        document.write("<td height='23' width='25'>Mon</td>");
+                        document.write("<td height='23' width='25'>Tue</td>");
+                        document.write("<td height='23' width='25'>Wed</td>");
+                        document.write("<td height='23' width='25'>Thu</td>");
+                        document.write("<td height='23' width='25'>Fri</td>");
+                        document.write("<td height='23' width='25'>Sat</td>");
+                        document.write("</tr>");
+                        temp = my.getDate();
+                        my.setDate(1);
+                        //document.write (my.getDate());
+                        tempday = my.getDay();//返回第一天是星期几
+                        my.setDate(temp);
+                        today = my.getDay();//返回现在星期几
+
+                        switch ((my.getMonth() + 1)) {
+                            case 1:
+                            case 3:
+                            case 5:
+                            case 7:
+                            case 8:
+                            case 10:
+                            case 12:
+                                max = 31;
+                                break;
+                            case 4:
+                            case 6:
+                            case 9:
+                            case 11:
+                                max = 30;
+                                break;
+                            default:
+                                max = 29;//这里没有考虑闰月！！
+                            //document.write (max);
+                        }
+                        for (k = 0; k < 6; k++) {
+                            document.write("<tr>");
+                            for (j = 0; j <= 6; j++) {
+                                document.write("<td height='20' width='39'>");
+                                if (j >= (tempday)) {
+                                    tempday = 0;//设置为最小，相当于取消判断条件
+                                    if (theday <= max) {
+                                        document.write("<a title=" + my.getFullYear() + "-" + (my.getMonth() + 1) + "-" + theday + " target='_blank' href=detail.asp?date=" + theday + ">");
+                                        if (theday == my.getDate())
+                                            document.write("<font color='green'>[" + theday + "]</font></a>");
+                                        else if (j == 0)
+                                            document.write("<font color='red'>" + theday + "</font></a>");
+                                        else
+                                            document.write(theday + "</a>");
+                                        theday++;
+                                    }
+                                }
+                                document.write("</td>");
+                            }
+                            document.write("</tr>");
+                        }
+                        document.write("</table>");
+                    }
+
+                    showc();
+                </script>
+            </div>
+            <span style="font-size: 2px;">14:00 销售部例会 </span>
+            <span style="font-size: 2px;">办公用品日常盘点 </span>
+            <span style="font-size: 2px;">马卫鑫 即将转正 </span>
+
+
+
+
+
+
+        </div>
+        <div class="div4">
+            <div id="main" style="width: 600px;height:400px;"></div>
+        </div>
+    </div>
+    <script>
+        //基于准备好的dom，初始化ECharts图表
+        var myChart = echarts.init(document.getElementById("main"));
+        var option = {  //指定图表的配置项和数据
+            backgroundColor: 'rgba(128, 128, 128, 0.01)',  //rgba设置透明度0.1
+            tooltip: { trigger: 'axis' },
+            legend: {
+                data: ['各种类型审批数量'],
+                icon: 'diamond',
+                left: 'center', top: 14
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: { show: true }, dataView: { show: true, readOnly: false },
+                    restore: { show: true }, saveAsImage: { show: true }
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: ['入职', '转正', '离职', '调薪', '请假', '调岗',
+                        '外出', '加班', '补卡', '领用', '退库', '借用', '归还', '挑拨']
+                }
+            ],
+            yAxis: [
+                {   //设置两个Y轴之1：降水量
+                    type: 'value', name: '单位（人）',
+                    min: 0, max: 600, interval: 100,
+                    axisLabel: { formatter: '{value} ' }
+                },
+
+            ],
+            series: [
+                {
+                    name: '水量', type: 'bar',
+                    itemStyle: {  //设置柱状图颜色
+                        normal: {
+                            color: '#00FFFF'
+                        }
+                    },
+                    data: [110, 580, 430, 280, 110, 430, 530, 280, 110, 215, 245, 475, 185, 110]
+                },
+            ]
+            //为echarts对象加载数据 
+
+
+
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>

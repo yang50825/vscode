@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        /* 取消超链接下划线 */
+        a {
+            text-decoration: none;
+        }
+
+        /* 导航栏最外部盒子 */
+        .bili-header_channel {
+            overflow-x: hidden;
+            width: 1350px;
+            height: 110px;
+            margin: 0 auto;
+            padding: 0 60px;
+            color: #18191c;
+            display: flex;
+            align-items: center;
+            background: var(--bg1);
+        }
+
+        /* 导航栏左边图标盒子 */
+        .channel-icons {
+
+            width: 210px;
+            height: 72px;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+        }
+
+        .channel-icons_item {
+            margin-right: 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-right: 16px;
+            color: var(--text1);
+        }
+
+        .v-img {
+            position: relative;
+            display: inline-block;
+            line-height: 1;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            background-color: var(--graph_bg_regular);
+        }
+
+        .vim img {
+            display: block;
+
+            object-fit: inherit;
+            border: 0;
+            font-family: inherit;
+            font-size: 100%;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.25;
+        }
+
+        /* 图标样式 */
+        .icon-bg__dynamic img {
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+        }
+
+        /* 图标标题 */
+        .icon-title {
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+            color: inherit;
+
+        }
+
+        /* 导航栏右侧盒子 */
+        .right-channel-container {
+            width: 1140px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 导航栏右侧左侧选项 */
+        .channel-items__left {
+            padding-right: 30px;
+            grid-template-columns: repeat(11, 1fr);
+            display: grid;
+            width: 100%;
+            grid-auto-flow: column;
+            grid-column: span 4;
+            grid-gap: 10px;
+            grid-template-rows: repeat(2, 1fr);
+            border-right: 1px solid #e3e5e7;
+            /* float: left; */
+        }
+
+        /* 导航栏左侧链接 */
+        .channel-link {
+            letter-spacing: 2px;
+            font-size: 14px;
+            width: 69.84px;
+            height: 26px;
+            line-height: 26px;
+            display: inline-block;
+            box-sizing: content-box;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #f6f7f8;
+            border-radius: 6px;
+            background-color: #f6f7f8;
+            color: #61666d;
+            text-align: center;
+            font-weight: 400;
+            transition: background-color .3s, color .3s;
+
+        }
+
+        .channel-link:hover {
+            background: #C9CCD0;
+        }
+
+        /* 导航栏右侧盒子 */
+        .channel-items__right {
+            overflow-x: hidden;
+            width: 240px;
+            height: 66px;
+            grid-column: span 1;
+            grid-row-gap: 10px;
+            grid-auto-flow: column;
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            width: 168px;
+            flex-shrink: 0;
+            /* float: right; */
+        }
+
+        /* 导航栏右侧链接 */
+        .channel-link__right {
+            overflow-x: hidden;
+            letter-spacing: 2px;
+            height: 28px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            color: #61666d;
+            text-align: center;
+            font-weight: 400;
+            transition: background-color .3s, color .3s;
+        }
+
+        .channel-link__right:hover {
+            color: #00aeec;
+        }
+
+        /* 内容容器 */
+        .container {
+            width: 1357px;
+            height: 773px;
+            margin: 0 auto;
+
+        }
+
+        /* 左侧盒子 */
+        .container .left_pic {
+            overflow-x: hidden;
+            width: 535px;
+            height: 382px;
+            float: left;
+        }
+
+        /* 左侧图片 */
+        .container .left_pic img {
+            width: 530.93px;
+            height: 381.4px;
+            display: block;
+            object-fit: inherit;
+        }
+
+        /* 右侧盒子 */
+        .right_pic {
+            position: relative;
+            width: 820px;
+            float: left;
+        }
+
+        /* 内容部分 */
+        .recommended-card {
+            /* position: absolute; */
+            width: 255.47px;
+            height: 217.7px;
+            /* top: 0; */
+            /* left: 0; */
+            z-index: 1;
+            background-color: #ffffff;
+            object-fit: contain;
+            float: left;
+            margin: 0 9px 10px 8px;
+        }
+
+        /* 内容图片 */
+        .recommended-pic img {
+            width: 255.47px;
+            height: 143.7px;
+            /* position: absolute; */
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 6px;
+            object-fit: contain;
+            display: inline-block;
+            vertical-align: middle;
+            background-color: #f1f2f3;
+        }
+
+        /* 内容标题 */
+        .bili-video-card__info--tit {
+            width: 255.47px;
+            height: 44px;
+            color: #18191c;
+        }
+
+        /* 内容标题 */
+        .bili-video-card__info--tit a {
+            padding-right: 16px;
+            color: #18191c;
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            height: 22px;
+            display: -webkit-flex;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            text-overflow: -o-ellipsis-lastline;
+            text-overflow: ellipsis;
+            word-break: break-word !important;
+            word-break: break-all;
+            line-break: anywhere;
+            -webkit-line-clamp: 2;
+            border: 0;
+            font-family: inherit;
+        }
+
+        /* 视频底部信息 */
+        .bili-video-card__info--bottom {
+            margin-top: 4px;
+            color: #9499a0;
+            font-size: 13px;
+            line-height: 16px;
+            height: 16px;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* 作者名字 */
+        .bili-video-card__info--author {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            text-overflow: -o-ellipsis-lastline;
+            text-overflow: ellipsis;
+            word-break: break-word !important;
+            word-break: break-all;
+            line-break: anywhere;
+            -webkit-line-clamp: 1;
+            display: inline-flex;
+            line-height: 16px;
+        }
+
+        /* 日期 */
+        .bili-video-card__info--date {
+            margin-left: 4px;
+            line-height: 16px;
+        }
+
+        /* 已关注 */
+        .bili-video-card__info--icon-text {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            color: #ff7f24;
+            background-color: #fff0e3;
+            border-radius: 4px;
+            margin-right: 4px;
+            font-size: 12px;
+            line-height: 17px;
+            height: 17px;
+            padding: 0 4px;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bili-header_channel">
+        <div class="channel-icons">
+            <a class="channel-icons_item" href="#">
+                <div class="icon-bg icon-bg__dynamic">
+                    <picture class="v-img icon-bg--up">
+                        <img src="img/b22a630bb9f3865c7a59e4e889797da65c3ede6b.jpg@92w_92h.webp" />
+                    </picture>
+                </div>
+                <span class="icon-title">动态</span>
+            </a>
+            <a href="#" class="channel-icons_item">
+                <div class="icon-bg icon-bg__dynamic">
+                    <img src="img/1662435553474.png" />
+                </div>
+                <span class="icon-title">热门</span>
+            </a>
+            <a href="#" class="channel-icons_item">
+                <div class="icon-bg icon-bg__dynamic">
+                    <img src="img/1662435773377.png" />
+                </div>
+                <span class="icon-title">频道</span>
+            </a>
+        </div>
+        <div class="right-channel-container">
+            <div class="channel-items__left">
+                <a href="#" class="channel-link">番剧</a>
+                <a href="#" class="channel-link">电影</a>
+                <a href="#" class="channel-link">国创</a>
+                <a href="#" class="channel-link">电视剧</a>
+                <a href="#" class="channel-link">综艺</a>
+                <a href="#" class="channel-link">纪录片</a>
+                <a href="#" class="channel-link">动画</a>
+                <a href="#" class="channel-link">游戏</a>
+                <a href="#" class="channel-link">鬼畜</a>
+                <a href="#" class="channel-link">音乐</a>
+                <a href="#" class="channel-link">舞蹈</a>
+                <a href="#" class="channel-link">影视</a>
+                <a href="#" class="channel-link">娱乐</a>
+                <a href="#" class="channel-link">知识</a>
+                <a href="#" class="channel-link">科技</a>
+                <a href="#" class="channel-link">资讯</a>
+                <a href="#" class="channel-link">美食</a>
+                <a href="#" class="channel-link">生活</a>
+                <a href="#" class="channel-link">汽车</a>
+                <a href="#" class="channel-link">时尚</a>
+                <a href="#" class="channel-link">运动</a>
+                <a href="#" class="channel-link">更多</a>
+            </div>
+            <div class="channel-items__right">
+                <a href="#" class="channel-link__right">
+                    <span>专栏</span>
+                </a>
+                <a href="#" class="channel-link__right">
+                    <span>直播</span>
+                </a>
+                <a href="#" class="channel-link__right">
+                    <span>活动</span>
+                </a>
+                <a href="#" class="channel-link__right">
+                    <span>课堂</span>
+                </a>
+                <a href="#" class="channel-link__right">
+                    <span>社区中心</span>
+                </a>
+                <a href="#" class="channel-link__right">
+                    <span>新歌热榜</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left_pic">
+            <a href="#">
+                <img id="img2" />
+            </a>
+        </div>
+        <div class="right_pic">
+            <div class="recommended-card">
+                <a href="#" class="recommended-pic">
+                    <img src="img/61acfa06e93569943740a48e722b72fb24a5a77b.jpg@672w_378h_1c.webp" />
+                </a>
+                <div class="bili-video-card__info">
+                    <h3 class="bili-video-card__info--tit">
+                        <a href="#">
+                            不到十年，北方农村已经被槟榔全面入侵！UP主小卖部实地调查记录
+                        </a>
+                    </h3>
+                    <div class="bili-video-card__info--bottom">
+                        <span class="bili-video-card__info--author">魔牙频道</span>
+                        <span class="bili-video-card__info--date">· 8-30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="recommended-card">
+                <a href="#" class="recommended-pic">
+                    <img src="img/f2715672e1f2fd21a93e6c10e09b3c5d1cdb972f.jpg@672w_378h_1c.webp" />
+                </a>
+                <div class="bili-video-card__info">
+                    <h3 class="bili-video-card__info--tit">
+                        <a href="#">
+                            吃了多少！你自己不知道吗？你这怎么算的？｜真探来了
+                        </a>
+                    </h3>
+                    <div class="bili-video-card__info--bottom">
+                        <span class="bili-video-card__info--icon-text">已关注</span>
+                        <span class="bili-video-card__info--author">真探来了</span>
+                    </div>
+                </div>
+            </div>
+            <div class="recommended-card">
+                <a href="#" class="recommended-pic">
+                    <img src="img/0702f7dca0a80321f15e3040adae7f61bfd675a2.jpg@672w_378h_1c.webp" />
+                </a>
+                <div class="bili-video-card__info">
+                    <h3 class="bili-video-card__info--tit">
+                        <a href="#">
+                            献给LOL和王者玩家的DOTA2教学【齐天大圣&孙悟空】
+                        </a>
+                    </h3>
+                    <div class="bili-video-card__info--bottom">
+                        <span class="bili-video-card__info--icon-text">7万点赞</span>
+                        <span class="bili-video-card__info--author">就是锐Ray</span>
+                    </div>
+                </div>
+            </div>
+            <div class="recommended-card">
+                <a href="#" class="recommended-pic">
+                    <img src="img/175080263ff7163f2efbb117060b8652887990ec.jpg@672w_378h_1c.webp" />
+                </a>
+                <div class="bili-video-card__info">
+                    <h3 class="bili-video-card__info--tit">
+                        <a href="#">
+                            【巫师】网红与资本简史
+                        </a>
+                    </h3>
+                    <div class="bili-video-card__info--bottom">
+                        <span class="bili-video-card__info--author">巫师财经</span>
+                        <span class="bili-video-card__info--date">· 8-17</span>
+                    </div>
+                </div>
+            </div>
+            <div class="recommended-card">
+                <a href="#" class="recommended-pic">
+                    <img src="img/27b2f9a48d8c0f0c4314b9adb7e52f67956f90b4.jpg@672w_378h_1c.webp" />
+                </a>
+                <div class="bili-video-card__info">
+                    <h3 class="bili-video-card__info--tit">
+                        <a href="#">
+                            斯大林的家乡味道：20斤大肉球裹着猪油烤，“卷王大串”肉比拳头大！
+                        </a>
+                    </h3>
+                    <div class="bili-video-card__info--bottom">
+                        <span class="bili-video-card__info--author">高加索美食小哥</span>
+                        <span class="bili-video-card__info--date">· 8-30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="recommended-card">
+                <a href="#" class="recommended-pic">
+                    <img src="img/65a8078469e577b01958b5acde8da0a5a1ef7d8b.jpg@672w_378h_1c.webp" />
+                </a>
+                <div class="bili-video-card__info">
+                    <h3 class="bili-video-card__info--tit">
+                        <a href="#">
+                            《暗爪的凌冽，幕刃的戏谑》
+                        </a>
+                    </h3>
+                    <div class="bili-video-card__info--bottom">
+                        <span class="bili-video-card__info--author">阿帅派克</span>
+                        <span class="bili-video-card__info--date">· 8-28</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 开局设置图片为1
+    document.getElementById("img2").src = './img/1.jpg';
+    const ps = new Array("./img/1.jpg", "./img/2.jpg", "./img/3.png", "./img/4.png", "./img/5.png", "./img/6.png", "./img/7.png", "./img/8.png", "./img/9.png");
+    let i = 0;
+    function hanshu() {
+        i++;
+
+        if (i >= ps.length)
+            i = 0;
+        document.getElementById("img2").src = ps[i];
+
+    }
+    setInterval(hanshu, 2000);
+</script>
+
+</html>

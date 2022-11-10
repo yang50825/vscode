@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        
+    </div>
+
+    <script>
+
+        
+
+        // 定义hello组件
+        const hello = Vue.extend({
+            template: 
+            `
+                <div>
+                    <h1>{{msg}}</h1>
+                </div>
+            `,
+            data() {
+                return {
+                    msg:'欢迎学习Vue'   
+                }
+            }
+        });
+
+        // 定义student组件
+        const student = Vue.extend({
+            name:'student',
+            template: 
+            `
+                <div>
+                    <h2>学生姓名：{{name}}</h2>    
+                    <h2>学生年龄：{{age}}</h2>    
+                </div>
+            `,
+            data() {
+                return {
+                    name: '张三',
+                    age: '18'
+                }
+            },
+        });
+
+        // 定义school组件
+        const school = Vue.extend({
+            name:'school',
+            template: 
+            `
+                <div>
+                    <h2>学校名称：{{name}}</h2>    
+                    <h2>学校地址：{{address}}</h2>
+                    <student></student>    
+                </div>
+            `,
+            data() {
+                return {
+                    name: '尚硅谷',
+                    address: '北京'
+                }
+            },
+            components:{
+                student:student
+            }
+        });
+
+        // 自定义app组件
+        const app = Vue.extend({
+            template:
+            `
+                <div>
+                    <hello></hello>
+                    <school></school> 
+                </div>
+            `,
+            components: {
+                school: school,
+                hello: hello
+            }
+        });
+
+        const vm = new Vue({
+            el:'#root',
+            template:
+            `
+                <app></app>
+            `,
+            data:{
+                msg:'欢迎学习Vue'
+            },
+            // 注册组件(局部)
+            components:{
+                app:app
+            }
+        });
+    </script>
+</body>
+</html>

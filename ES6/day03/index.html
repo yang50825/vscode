@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/calendar.css">
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <style>
+        #top {
+            height: 250px;
+            width: 100%;
+
+            float: left;
+        }
+
+        #middle {
+            height: 700px;
+            width: 100%;
+
+            float: left;
+        }
+
+        #text {
+            margin-top: 30px;
+        }
+
+        .boxmin {
+            height: 150px;
+            width: 15%;
+
+            float: left;
+            margin-left: 20px;
+        }
+
+        .bao {
+            margin-left: 70px;
+        }
+
+        #zuo {
+            height: 580px;
+            width: 25%;
+            margin-top: 10px;
+
+            float: left;
+        }
+
+        #zhong {
+            height: 480px;
+            width: 35%;
+            margin-top: 10px;
+
+            float: left;
+        }
+
+        #you {
+            height: 580px;
+            width: 100%;
+            margin-top: 10px;
+
+            float: right;
+            position: relative;
+            top: -530px;
+            left: 530px;
+
+        }
+
+        #calendar {
+            height: 500px;
+            width: 90%;
+
+            float: left;
+        }
+
+        .ppk {
+            float: left;
+            height: 100px;
+            width: 20%;
+
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .img {
+            height: 60px;
+            width: 100%;
+            border-radius: 0.9;
+        }
+
+        .o {
+            text-align: center;
+        }
+
+        #main {
+            height: 580px;
+            width: 100%;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top">
+        <div id="text">
+            <h3>员工概括</h3>
+        </div>
+        <div class="boxmin">
+            <div class="bao">
+                <img src="./img/1.1.png">
+                <p>1000</p>
+                <p>在职员工</p>
+            </div>
+        </div>
+        <div class="boxmin">
+            <div class="bao">
+                <img src="./img/1.2.png">
+                <p>80</p>
+                <p>待在职员工</p>
+            </div>
+        </div>
+        <div class="boxmin">
+            <div class="bao">
+                <img src="./img/1.3.png">
+                <p>100</p>
+                <p>试用期员工</p>
+            </div>
+        </div>
+        <div class="boxmin">
+            <div class="bao">
+                <img src="./img/1.4.png">
+                <p>8905</p>
+                <p>正式员工</p>
+            </div>
+        </div>
+        <div class="boxmin">
+            <div class="bao">
+                <img src="./img/1.5.png">
+                <p>44</p>
+                <p>待离职员工</p>
+            </div>
+        </div>
+        <div class="boxmin">
+            <div class="bao">
+                <img src="./img/1.6.png">
+                <p>609</p>
+                <p>已离职员工</p>
+            </div>
+        </div>
+    </div>
+    <div id="middle">
+        <div id="zuo">
+            <div id="kuai">
+                <h2>快捷入口</h2>
+                <div class="ppk">
+                    <img src="./img/2.1.png" class="img">
+                    <h2 class="o">新增员工</h2>
+                </div>
+
+                <div class="ppk">
+                    <img src="./img/2.2.png" class="img">
+                    <h2 class="o">打卡记录</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.3.png" class="img">
+                    <h2 class="o">审批</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.4.png" class="img">
+                    <h2 class="o">社保公积金</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.5.png" class="img">
+                    <h2 class="o">候选人</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.6.png" class="img">
+                    <h2 class="o">会议室预定</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.7.png" class="img">
+                    <h2 class="o">用车记录</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.8.png" class="img">
+                    <h2 class="o">工资条</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.9.png" class="img">
+                    <h2 class="o">公告</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.10.png" class="img">
+                    <h2 class="o">文档库</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.11.png" class="img">
+                    <h2 class="o">新闻</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.12.png" class="img">
+                    <h2 class="o">资产</h2>
+                </div>
+                <div class="ppk"> <img src="./img/2.13.png" class="img">
+                    <h2 class="o">绩效</h2>
+                </div>
+            </div>
+        </div>
+        <div id="zhong">
+            <div id="calendar" class="calendar"></div>
+            <div id="you">
+                <div id="main"></div>
+            </div>
+        </div>
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/calendar.js"></script>
+<script src="/echarts.common.min.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: "",
+        },
+        tooltip: {},
+        legend: {
+            data: ['人数']
+        },
+        xAxis: {
+            data: ["入职", "转正", "离职", "调薪", "请假", "调岗", "外出", "加班", "补卡", "领用", "退库", "借用", "归还", "调拨"]
+        },
+        yAxis: {
+            name: '单位(人)'
+        },
+        series: [{
+            name: '人数',
+            type: 'bar',
+            data: [110, 580, 430, 280, 110, 430, 530, 280, 110, 215, 245, 475, 185, 110]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</html>

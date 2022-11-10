@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			body {
+				display: flex;
+				width: 100%;
+				height: 100vh;
+			}
+
+			#date {
+				box-shadow: 0 0 10px #ccc;
+				width: 475px;
+				margin: auto;
+			}
+
+			#date>#date_box {
+				background: white;
+			}
+
+			#date>#date_box>.date_box_head {
+				height: 35px;
+				line-height: 35px;
+				display: flex;
+				justify-content: space-between;
+				padding: 0px 80px;
+				color: #007fff;
+			}
+
+			#date>#date_box>.date_box_head>font {
+				margin: auto 0px;
+			}
+
+			#date>#date_box>.date_box_head>span {
+				font-weight: 700;
+				font-size: 16px;
+			}
+
+			#date>#date_box>.date_box_week {
+				display: flex;
+				padding: 0px 10px;
+				background: #007fff;
+			}
+
+			#date>#date_box>.date_box_week>nav {
+				width: 14.3%;
+				height: 20px;
+				font-size: 12px;
+				color: white;
+				line-height: 20px;
+				text-align: center;
+			}
+
+			#date>#date_box>.date_box_days {
+				padding: 7px 10px 0px;
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			#date>#date_box>.date_box_days>nav:hover>nav>div {
+				display: block;
+			}
+
+			#date>#date_box>.date_box_days>nav:hover>nav>span {
+				background: #006CFF;
+			}
+
+			#date>#date_box>.date_box_days>nav {
+				width: 14.2857%;
+				height: 36px;
+				text-align: center;
+				padding: 3px 0px 5px;
+			}
+
+			#date>#date_box>.date_box_days>nav>div {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 20px;
+				margin: 0 auto;
+				font-size: 12px;
+			}
+
+			#date>#date_box>.date_box_days>nav>.active {
+				background: #0077FF;
+				color: white !important;
+			}
+
+			#date>#date_box>.date_box_days>nav>.opacity {
+				opacity: 0.4;
+			}
+
+			#date>#date_box>.date_box_days>nav>.weekend {
+				color: #007fff;
+			}
+
+			#date>#date_box>.date_box_days>nav>nav {
+				width: 100%;
+				height: 8px;
+				line-height: 8px;
+				display: flex;
+				justify-content: center;
+				position: relative;
+			}
+
+			#date>#date_box>.date_box_days>nav>nav>span {
+				margin: auto 0px;
+				padding: 0px;
+				outline: none;
+				display: block;
+				width: 0px;
+				height: 0px;
+				padding: 3px;
+				transform: scale(0.7);
+				border: 1px solid #006CFF;
+				background: transparent;
+				border-radius: 50%;
+			}
+
+			#date>#date_box>.date_box_days>nav>nav>div {
+				display: none;
+				background: white;
+				position: absolute;
+				top: 13px;
+				left: 50%;
+				width: 170px;
+				height: auto;
+				border: 1px solid #006CFF;
+				border-radius: 2px;
+				transform: translateX(-50%);
+				z-index: 99999;
+			}
+
+			#date>#date_box>.date_box_days>nav>nav>div>nav {
+				width: 100%;
+				height: auto;
+				position: relative;
+				padding: 4px;
+			}
+
+			#date>#date_box>.date_box_days>nav>nav>div>nav>nav {
+				width: 0px;
+				height: 0px;
+				border: 5px solid transparent;
+				border-bottom-color: #006CFF;
+				top: 0px;
+				position: absolute;
+				top: -11px;
+				left: 50%;
+				transform: translateX(-85%);
+			}
+
+			#date>#date_box>.date_box_days>nav>nav>div>nav>li {
+				padding: 0px 4px;
+				text-align: left;
+				width: 90%;
+				height: 18px;
+				line-height: 18px;
+				font-size: 12px;
+				color: #007fff;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			#date>#date_box>.date_box_days>nav>nav>.bg {
+				background: #006CFF;
+				transition: all .3s linear;
+			}
+			#date_left,#date_right{
+				user-select: none;
+				font-size:20px;
+			}
+		</style>
+		<script type="text/javascript" src="./js/jquery.min.js">
+
+		</script>
+	</head>
+	<body>
+		<nav class="col-sm-6 hidden-xs hidden-sm" id="date">
+			<nav id="date_box">
+				<nav class="date_box_head">
+					<font id="date_left"><b><<</b></font> 
+					<span id="date_text">2021年1月</span>
+					<font id="date_right"><b>>></b></font>
+				</nav>
+				<nav class="date_box_week">
+					<nav>日</nav>
+					<nav>一</nav>
+					<nav>二</nav>
+					<nav>三</nav>
+					<nav>四</nav>
+					<nav>五</nav>
+					<nav>六</nav>
+				</nav>
+				<nav class="date_box_days"></nav>
+			</nav>
+		</nav>
+	</body>
+	<script type="text/javascript">
+		var day_arr = {
+			'2019':null,
+			'2020':[
+				[null],
+				[null],
+				[null],
+				[null],
+				[null],
+				[null],
+				[null], 
+				[null], 
+				[null], 
+				[null], 
+				[null], 
+				[
+					{'tian': 8,'arr': ['字学镜像计划', 'QCon全球软件开发大会', '2020年MongoDB中文社区上海年会']},
+					{'tian': 9,'arr': ['SEE Conf 2021']},
+					{'tian': 10,'arr': ['nMeetup 图数据库交流']},
+					{'tian': 13,'arr': ['全球机器学习技术大赛']},
+					{'tian': 14,'arr': ['RTM 助力信令与消息全球实时互通']},
+					{'tian': 15,'arr': ['TiDB Hackathon 2020']},
+					{'tian': 16,'arr': ['UC 技术沙龙 x 掘金 JTalk | Flutter 引擎深度优化和进阶应用']},
+					{'tian': 23,'arr': ['第二十届前端早早聊大会 | 前端管理专场 | 如何打造优秀前端团队', '深入探索支付宝终端']}
+				],
+			],
+			'2021':[
+				[
+					{'tian': 9,'arr': ['SEE Conf 2021']},
+					{'tian': 10,'arr': ['nMeetup 图数据库交流']},
+					{'tian': 13,'arr': ['全球机器学习技术大赛']},
+					{'tian': 14,'arr': ['RTM 助力信令与消息全球实时互通']},
+					{'tian': 15,'arr': ['TiDB Hackathon 2020']},
+					{'tian': 16,'arr': ['UC 技术沙龙 x 掘金 JTalk | Flutter 引擎深度优化和进阶应用']},
+					{'tian': 23,'arr': ['第二十届前端早早聊大会 | 前端管理专场 | 如何打造优秀前端团队', '深入探索支付宝终端']},
+				],
+				[
+					{'tian': 9,'arr': ['SEE Conf 2021']},
+					{'tian': 10,'arr': ['nMeetup 图数据库交流']},
+					{'tian': 13,'arr': ['全球机器学习技术大赛']},
+					{'tian': 14,'arr': ['RTM 助力信令与消息全球实时互通']},
+					{'tian': 15,'arr': ['TiDB Hackathon 2020']},	
+					{'tian': 16,'arr': ['UC 技术沙龙 x 掘金 JTalk | Flutter 引擎深度优化和进阶应用']},
+					{'tian': 23,'arr': ['第二十届前端早早聊大会 | 前端管理专场 | 如何打造优秀前端团队', '深入探索支付宝终端']},
+				],
+				[
+					{'tian': 9,'arr': ['SEE Conf 2021']},
+					{'tian': 10,'arr': ['nMeetup 图数据库交流']},
+					{'tian': 13,'arr': ['全球机器学习技术大赛']},
+					{'tian': 14,'arr': ['RTM 助力信令与消息全球实时互通']},
+					{'tian': 15,'arr': ['TiDB Hackathon 2020']},	
+					{'tian': 16,'arr': ['UC 技术沙龙 x 掘金 JTalk | Flutter 引擎深度优化和进阶应用']},
+					{'tian': 23,'arr': ['第二十届前端早早聊大会 | 前端管理专场 | 如何打造优秀前端团队', '深入探索支付宝终端']},
+				],
+				[null],
+				[null],
+				[null],
+				[null],
+				[null],
+				[null],
+				[null],
+				[null],
+				[null],
+			],
+		}
+		console.log(day_arr)
+		function isLeapYear() {			//是否闰年
+			if (((year % 4) == 0) && ((year % 100) != 0) || ((year % 400) == 0)) {
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+		var day = [31, 28 + isLeapYear(), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];	//每个月的天数
+		var oDate = new Date();
+		var year = oDate.getFullYear(); // 年
+		var month = oDate.getMonth(); // 月( 0-11 )
+		var date = oDate.getDate(); // 日
+		var firstDay = (new Date(year, month, 1)).getDay();//本月第一天星期几
+		resTime(0);
+
+		function resTime(res) {
+			$(".date_box_days").empty();
+			for (var i = 0; i < 42; i++) {
+				var navs = $(`<nav><div></div><nav></nav></nav>`)
+				$(".date_box_days").append(navs);
+			}
+			month += res;
+			var firstDay = (new Date(year, month, 1)).getDay();
+			var i = 0;
+			var l = 0;
+			if (month > 11) {
+				var newDate = new Date(year+2,0,0,0,0);
+				year=newDate.getFullYear();
+				var oldday = [31, 28+isLeapYear(), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				month=0;
+			}
+			if (month < 0) {
+				var newDate = new Date(year,0,0,0);
+				year=newDate.getFullYear();
+				var oldday = [31, 28+isLeapYear(), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				month=11;
+			}
+			if (month - 1 < 0) {
+				var oldDate = new Date(year - 1);
+				var y = oldDate.getFullYear();
+				var oldday = [31, 28 + isLeapYear(), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				var il = oldday[11];
+			} else {
+				var il = day[(month - 1)];
+			}
+			var ii = il - firstDay;
+			var year_arr_month = day_arr[year];
+			$.each($(".date_box_days>nav"), function(k, v) {
+				if (k % 7 == 0 || k % 7 == 6) {
+					$(v).find('div').addClass('weekend');
+				}
+				if (k < firstDay) {
+					ii++;
+					$(v).find('div').html(ii);
+					$(v).find('div').addClass('opacity');
+				}
+				if (k >= firstDay + day[month]) {
+					l++
+					$(v).find('div').html(l);
+					$(v).find('div').addClass('opacity');
+				}
+				if (k >= firstDay) {
+					i++;
+					if (i <= day[month]) {
+						$(v).find('div').html(i);
+					}
+				}
+				if (k == date + firstDay - 1) {
+					$(v).find('div').addClass('active');
+				}
+				$.each(year_arr_month[month], function(key, val) {
+					if(!val) return false;
+					if (val.tian + firstDay - 1 == k) {
+						$(v).find('nav').html(`
+							<div>
+								<nav>
+									<nav></nav>
+								</nav>
+							</div>`);
+						$.each(val.arr, function(kk, vv) {
+							var spans = $(`<span></span>`);
+							var lis = $("<li>" + vv + "</li>")
+							$(v).find('nav>div').before(spans);
+							$(v).find('nav>div>nav').append(lis)
+						});
+					}
+				})
+			})
+			$("#date_text").html(year + '年' + (month + 1) + '月')
+		}
+		$('#date_right').click(function() {
+			resTime(1);
+		})
+		$('#date_left').click(function() {
+			resTime(-1);
+		})
+	</script>
+</html>
+

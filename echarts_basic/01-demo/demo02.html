@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>折线图</title>
+    <script src="../js/echarts.js"></script>
+</head>
+<body>
+    <div id="myCharts" style="width: 600px; height: 400px;"></div>
+
+    <script>
+        var myChart = echarts.init(document.getElementById('myCharts'));
+        var xDataArray = ['1月', '2月',   '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+        var yDataArray = [3000, 4000, 5000, 6000, 7000, 6000, 1200, 3100, 5000, 4000, 3800, 7100]
+
+        // 准备配置项
+        var options = {
+            xAxis: {
+                type: 'category',
+                data: xDataArray
+            },
+            yAxis: {
+                type: 'value'
+            },
+            legend:{
+                data:['方便面']
+            },
+            label: {
+                // 显示数据
+                show:true
+            },
+            series: [
+                {
+                    name:'方便面',
+                    type:'line',
+                    data:yDataArray,
+                    markPoint:{
+                        data:[
+                            {
+                                type:'max'
+                            },
+                            {
+                                type: "min"
+                            }
+                        ]
+                    },
+                    markLine: {
+                        data:[
+                            {
+                                type:'average'
+                            }
+                        ]
+                    },
+                },
+            ]
+        }
+
+        // 将配置项设置给echarts实例对象
+        myChart.setOption(options);
+    </script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            font-style: none;
+        }
+
+
+        /* 头部 */
+        .header {
+            width: 100%;
+            height: 80px;
+            background-color: rgb(51, 51, 51);
+            position: fixed;
+            top: 0;
+        }
+
+        /* 导航栏大盒子 */
+        .top_nax {
+            width: 1100px;
+            /* height: 80px; */
+            margin: 0 188px;
+            /* background-color: red; */
+            color: aliceblue;
+            font-weight: 600;
+            line-height: 80px;
+            float: left;
+        }
+
+        /* 导航栏logo */
+        .top_logo {
+            float: left;
+        }
+
+        /* 导航栏标签 */
+        .nax_index {
+            margin: 0 60px;
+            float: left;
+        }
+
+        /* 头部用户部分 */
+        .top_right {
+            font-weight: 400;
+            float: right;
+        }
+
+        /* 中间部分盒子 */
+        .content {
+            width: 1100px;
+            /* background-color: red; */
+            margin: 80px auto 0;
+            position: relative;
+        }
+
+        /* 公告栏盒子 */
+        .notice_board {
+            width: 540px;
+            height: 338px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        /* 盒子标题 */
+        .box_title {
+            padding-left: 20px;
+            height: 50px;
+            background-color: #f3f3f3;
+            color: #33cc99;
+            line-height: 50px;
+            font-weight: 600;
+        }
+
+
+        .notice_year_month {
+            color: #199ed8;
+            background-color: #f3f3f3;
+        }
+
+        .notice_day {
+            background-color: #199ed8;
+            color: #fff;
+        }
+
+        .notice_date {
+            height: 75px;
+            width: 90px;
+            font-size: 14px;
+            line-height: 35px;
+        }
+
+        .notice_day p {
+            margin: 0 auto;
+            width: 28px;
+        }
+
+        .notice_year_month p {
+            width: 56px;
+            height: 35px;
+            margin: 0 auto;
+        }
+
+        .content_news {
+            position: relative;
+            padding-left: 20px;
+            width: 530px;
+            height: 75px;
+            margin: 10px 0;
+            float: left;
+            overflow: hidden;
+        }
+
+        /* 通知标题 */
+        .news_title {
+            width: 360px;
+            position: absolute;
+            left: 140px;
+            bottom: 40px;
+        }
+
+        /* 查看更多 */
+        .title_info {
+            color: #199ed8;
+            float: right;
+        }
+
+        .right {
+            width: 540px;
+            height: 338px;
+            background-color: azure;
+            /* float: right; */
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 1px solid #f3f3f3;
+            ;
+            border-radius: 5px;
+            background-color: rgb(255, 153, 0);
+            margin-left: 10px;
+        }
+
+
+        .r-bu {
+            width: 100%;
+            /* padding-right: 2px; */
+            height: 260px;
+
+            border-radius: 5px;
+        }
+
+        .cen {
+            width: 40px;
+            height: 60px;
+            border: 5px solid white;
+            margin: 0 auto;
+            margin-top: 80px;
+        }
+
+        .body-b {
+            width: 1100px;
+            margin-top: 20px;            
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .bb {
+            width: 1208px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .body-b-t {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(243, 243, 243);
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+
+        .body-b-t span {
+            line-height: 40px;
+            margin-left: 20px;
+            color: black;
+            font-weight: 500;
+        }
+
+        .body-b-c {
+            width: 100%;
+            height: 120px;
+        }
+
+        .b-i {
+            width: 60px;
+            margin: 5px 36px;
+            float: left;
+        }
+
+        .img {
+            width: 60px;
+            height: 60px;
+            margin-top: 15px;
+        }
+
+        .b-i p {
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="top_nax">
+            <div class="top_logo">小公司OA系统</div>
+            <ul>
+                <li class="nax_index">首页</li>
+                <li class="nax_index">任务大厅</li>
+                <li class="nax_index">项目大厅</li>
+                <li class="nax_index">绩效中心</li>
+            </ul>
+            <div class="top_right">
+                admin
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="notice_board">
+            <div class="box_title">
+                公告栏
+            </div>
+            <div class="content_news">
+                <div class="notice_date">
+                    <div class="notice_day">
+                        <p>09</p>
+                    </div>
+                    <div class="notice_year_month">
+                        <p>2019-10</p>
+                    </div>
+                </div>
+                <div class="news_title">
+                    国庆放假通知
+                    <span class="title_info">查看详情 &gt;</span>
+                </div>
+            </div>
+            <div class="content_news">
+                <div class="notice_date">
+                    <div class="notice_day">
+                        <p>09</p>
+                    </div>
+                    <div class="notice_year_month">
+                        <p>2019-10</p>
+                    </div>
+                </div>
+                <div class="news_title">
+                    关于电子邮箱系统升级的通知
+                    <span class="title_info">查看详情 &gt;</span>
+                </div>
+            </div>
+            <div class="content_news">
+                <div class="notice_date">
+                    <div class="notice_day">
+                        <p>09</p>
+                    </div>
+                    <div class="notice_year_month">
+                        <p>2019-10</p>
+                    </div>
+                </div>
+                <div class="news_title">
+                    中秋节放假通知
+                    <span class="title_info">查看详情 &gt;</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="box_title">
+                <span class="head-c" style="color:rgb(255, 153, 0)">表扬庆祝</span>
+            </div>
+            <div class="r-bu">
+                <div class="cen"></div>
+            </div>
+        </div>
+    </div>
+    <div class="body-b">
+        <div class="body-b-t">
+            <span>本月绩效排名</span>
+        </div>
+        <div class="body-b-c">
+            <div class="b-i">
+                <img src="./img/1.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(120)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(100)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+            <div class="b-i">
+                <img src="./img/2.png" class="img">
+                <p>某某某</p>
+                <p style="color: red;">(80)</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

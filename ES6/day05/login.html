@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* 大盒子 */
+        .big_box {
+            height: 750px;
+            width: 100;
+        }
+
+        /* 左边盒子 */
+        .left_box {
+            width: 55px;
+            height: 750px;
+            background-color: #8f949a;
+            float: left;
+        }
+
+        /* 中间盒子 */
+        .center_box {
+            width: 239px;
+            height: 750px;
+            background-color: #f5f5f5;
+            float: left;
+        }
+
+        /* 搜索框 */
+        .search {
+            text-align: center;
+            line-height: 20px;
+            margin-top: 20px;
+        }
+
+        /* 下拉样式 */
+
+        #bigde {
+            padding-top: 10px;
+            float: left;
+            width: 200px;
+            height: auto;
+            /* background-color: aqua; */
+            padding-bottom: 20px;
+        }
+
+
+
+        details {
+            padding-left: 10px
+        }
+
+
+        summary {
+            padding-left: 10px;
+            width: 150px;
+            height: 40px;
+            line-height: 50px;
+            /* background-color: aliceblue; */
+        }
+
+        .tree-item {
+            font-size: 14px;
+            
+        }
+
+        .tree-item a{
+            color: rgb(119, 119, 119);
+        }
+
+        .right_box {
+            float: left;
+            width: 1100px;
+            height: 750px;
+            background-color: #949494;
+        }
+
+        /* 右边div right_box1 */
+        .right_box1 {
+            float: left;
+            width: 500px;
+            height: 500px;
+            margin: 125px 300px 125px 300px;
+        }
+
+        .right_box_top {
+            width: 500px;
+            height: 150px;
+        }
+
+        .right_box1 img {
+            margin: 30px 100px 20px 180px;
+
+        }
+
+        /* 登录框 */
+        .right_box_bottom {
+            width: 500px;
+            height: 300px;
+            border: solid 1px rgb(0, 102, 255);
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        .right_box_bottom p {
+
+            font-size: 24px;
+            color: rgb(0, 102, 255);
+            margin: 20px 100px 0 180px;
+            font-weight: 600;
+        }
+
+        .login_input {
+            width: 300px;
+            height: 150px;
+            margin: 20px 80px 0 120px;
+        }
+
+        .login_input input {
+            border-radius: 8px;
+            border: solid 1px rgb(204, 204, 204);
+            height: 40px;
+            width: 200px;
+            margin: 10px 0 10px 50px;
+        }
+
+        #btn {
+            background-color: rgb(0, 102, 255);
+            width: 100px;
+            height: 50px;
+            border-radius: 8px;
+            border: solid 1px rgb(0, 102, 255);
+            margin: 0 0 0 210px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="left_box">
+            <img src="./img/left1.jpg">
+            <img src="./img/left2.png">
+            <img src="./img/left33.jpg">
+        </div>
+        <div class="center_box">
+            <img src="./img/center1.jpg">
+
+            <div class="search">
+                <input type="text" placeholder="search">
+            </div>
+            <div id="bigde">
+
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">产品说明</a></span>
+                    </summary>
+                </details>
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">信息架构图</a></span>
+                    </summary>
+                </details>
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">项目管理操作流程图</a></span>
+                    </summary>
+                </details>
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">登录界面</a></span>
+                    </summary>
+                </details>
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">系统界面</a></span>
+                    </summary>
+                    <details>
+                        <summary>
+                            <span class="tree-item"><a href="">首页</a></span>
+                        </summary>
+                        <details>
+                            <summary>
+                                <span class="tree-item"><a href="">当前任务详情</a></span>
+                            </summary>
+                        </details>
+                    </details>
+                    <details>
+                        <summary>
+                            <span class="tree-item"><a href="">任务大厅-未接收</a></span>
+                        </summary>
+                        <details>
+                            <summary>
+                                <span class="tree-item"><a href="">任务详情</a></span>
+                            </summary>
+                        </details>
+                        <details>
+                            <summary>
+                                <span class="tree-item"><a href="">任务大厅-进行中</a></span>
+                            </summary>
+                        </details>
+                        <details>
+                            <summary>
+                                <span class="tree-item"><a href="">任务大厅-待验收</a></span>
+                            </summary>
+                        </details>
+                    </details>
+                </details>
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">任务大厅-未开始</a></span>
+                    </summary>
+                    <details>
+                        <summary>
+                            <span class="tree-item"><a href="">项目详情</a></span>
+                        </summary>
+                    </details>
+                    <details>
+                        <summary>
+                            <span class="tree-item"><a href="">项目大厅-进行中</a></span>
+                        </summary>
+                        <details>
+                            <summary>
+                                <span class="tree-item"><a href="">任务列表</a></span>
+                            </summary>
+                        </details>
+                    </details>
+                </details>
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">绩效中心</a></span>
+                    </summary>
+                    <details>
+                        <summary>
+                            <span class="tree-item"><a href="">任务状况详情</a></span>
+                        </summary>
+                    </details>
+
+                </details>
+                <details>
+                    <summary>
+                        <span class="tree-item"><a href="">个人菜单</a></span>
+                    </summary>
+                    <details>
+                        <summary>
+                            <span class="tree-item"><a href="">我的任务</a></span>
+                        </summary>
+                        <details>
+                            <summary>
+                                <span class="tree-item"><a href="">进行中</a></span>
+                            </summary>
+                        </details>
+                    </details>
+
+                </details>
+                </details>
+            </div>
+        </div>
+
+    </div>
+    <div class="right_box">
+        <div class="right_box1">
+            <div class="right_box_top">
+                <img src="./img/c0f55e303c998fa857df8a713aa8ee5e.png">
+            </div>
+            <div class="right_box_bottom">
+                <p>
+                    小公司OA系统
+                </p>
+
+                <div class="login_input">
+
+                    <input type="text" placeholder="请输入账号">
+                    <input type="text" placeholder="请输入登录密码">
+                </div>
+                <div>
+                    <button id="btn">登录</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

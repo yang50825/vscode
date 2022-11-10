@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饼状图</title>
+    <script src="../js/echarts.js"></script>
+</head>
+<body>
+    <div id="box" style="width: 600px; height: 400px"></div>
+
+    <script>
+        // 初始化echarts实例对象，其中init函数参数为dom元素，决定图表最终展示的位置
+        var myChart = echarts.init(document.getElementById("box"));
+
+        // 准备配置项
+        var option = {
+            legend:{
+                data:['淘宝', '京东', '拼多多', '苏宁']
+            },
+            series: [
+                {
+                    type: 'pie',
+                    label: {
+                        // 显示文字
+                        show:true,
+                        formatter:function(value) {
+                            // 决定文字显示的内容
+                            return value.name + "平台" + value.value + '元\n' + value.percent + '%';
+                        }
+                    },
+                    data: [
+                        {name:'淘宝', value:11231},
+                        {name:'京东', value:22673},
+                        {name:'拼多多', value:6123},
+                        {name:'苏宁', value:8989},
+                    ],
+                    // radius: 20 饼图的半径
+                    // radius:'20%' 百分比参照的是宽度和高度中较小的那一部分的一半来进行百分比设置
+                    // radius:['50%', '75%'] 第0个元素代表的是内圆的半径 第一个元素外圆的半径
+                    // roseType: 'radius', // 南丁格尔图 饼图的每一个区域的半径是不同的
+                    // selectedMode:'single' 点击、选中的效果：能够将选中的区域偏离圆点一小段距离
+                    selectedMode:'multiple',
+                    selectedOffset:30
+                }
+            ]
+        }
+        // 将配置项设置给echarts实例对象
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

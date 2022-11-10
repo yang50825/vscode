@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/echarts.js"></script>
+</head>
+<body>
+    <!-- 准备一个容器div， 放置图表 -->
+    <div id="demo1" style="width: 600px; height: 400px;"></div>
+
+    <!-- 使用js绘制图表 -->
+    <script>
+        // 初始化绘制图表的echarts实例
+        var myChart = echarts.init(document.querySelector('#demo1'));
+
+        // 指定图表的配置
+        var option = {
+            title:{
+                text:"杨帅echarts Demo1"
+            },
+            tooltip:{}, // 提示框
+            legend:{
+                data:['人数']
+            },
+            xAxis:{
+                data:['vue', 'react', 'angular', 'jquery']
+            },
+            yAxis:{},
+            series:[
+                {
+                    name:'人数',
+                    type:'bar',
+                    data:[2000, 1600, 500, 2200]
+                }
+            ]
+        }
+
+        // 对实例对象设置配置
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
